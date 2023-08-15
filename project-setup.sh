@@ -90,6 +90,10 @@ NAME_LINE=' "name":"'${APP_NAME}'",'
 sed -i "2c\ ${NAME_LINE}" package.json
 # this appends a string after the second line
 sed -i "2a\ ${HOME_PAGE_LINE}" package.json 
+# if outDir is not inside project root and will not be emptied. Use --emptyOutDir to override.
+# see: https://stackoverflow.com/questions/76114350/vite-dist-is-not-inside-project-root-and-will-not-be-emptied-use-emptyoutdi
+BUILD_LINE='    "build": "tsc && vite build --emptyOutDir",'
+sed -i "10c\ ${BUILD_LINE}" package.json
 
 git init 
 git config --local user.name "${GIT_USER_NAME}" && git config --local user.email "${GIT_USER_EMAIL}"
