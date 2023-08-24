@@ -21,6 +21,7 @@
     "react-redux": "^8.0.1"
   },
   "devDependencies": {
+    "@openzeppelin/contracts": "^4.9.3",
     "@testing-library/dom": "^9.2.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^14.0.0",

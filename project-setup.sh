@@ -114,7 +114,7 @@ git remote add gitlab "git@gitlab.com:${GIT_USER_NAME}/${APP_NAME}.git" && git p
 read -rp "Make pages visible at: Gitlab Project -> Settings --> General -> Visibility, project features, permissions -> Pages > Everyone > Save ; than press Enter to continue"
 
 # Create repo on github using GitHUb CLI
-# https://github.com/cli/cli/blob/trunk/docs/install_linux.md 
+# https://github.com/cli/cli/blob/trunk/docs/install_linux.md
 gh auth login --with-token < "${GITHUB_TOKEN_PATH}"
 #  https://cli.github.com/manual/gh_repo_create
 gh repo create --source=. --public --remote=github --description="${GIT_USER_NAME}.github.io/${APP_NAME}/" --push
