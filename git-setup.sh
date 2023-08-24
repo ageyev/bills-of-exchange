@@ -13,8 +13,15 @@ git config --list
 echo
 # read -p "Press enter to continue"
 
+git remote add gitlab "git@gitlab.com:${GIT_USER_NAME}/${APP_NAME}.git"
+git remote add github "git@github.com:${GIT_USER_NAME}/${APP_NAME}.git"
+
 echo "GitLab connection test:"
 ssh -T git@gitlab.com
 echo
+
+# https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+gh auth login --with-token < "${GITHUB_TOKEN_PATH}"
 echo "GitHub connection test:"
 ssh -T git@github.com
+
