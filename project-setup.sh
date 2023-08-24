@@ -7,7 +7,7 @@
 # GitLab repo and GitLab Pages
 
 # create .env 
-# see .env.template 
+# see .template.env
 
 # before check permissions in ~/.ssh , should be:
 # chmod 400 <keys>
@@ -57,7 +57,7 @@ echo
 read -rp "Press enter to continue or Ctrl-C to escape"
 
 # https://redux-toolkit.js.org/introduction/getting-started#installation 
-npx degit reduxjs/redux-templates/packages/vite-template-redux --force || exit 
+npx degit reduxjs/redux-templates/packages/vite-template-redux --force
 
 mv .gitignore .gitignore.01
 wget https://gitlab.com/-/snippets/2580987/raw/main/.gitignore -O .gitignore 
@@ -128,7 +128,7 @@ wget https://gist.githubusercontent.com/ageyev/254d3228ed1e425c51b8b583d49a9f67/
 # edit vite.config.ts
 #
 #  base: "./",
-#  root: "./root",
+#  root: "./src",
 #  build: {
 #    assetsDir: "assets", // default
 #    outDir: "../build",  //
@@ -136,14 +136,13 @@ wget https://gist.githubusercontent.com/ageyev/254d3228ed1e425c51b8b583d49a9f67/
 #  },
 
 mv ./vite.config.ts ./vite.config.01.ts
-
+# TODO: update link
 wget https://gist.githubusercontent.com/ageyev/56f6ef41e5a42accca7b47f7bed2ce8a/raw/13cc37afa1bf7e3de797191cc97c154d9185df49/vite.config.ts
 
-mkdir -p root
-mv ./index.html ./root/index.html
-INDEX_HTML_SCRIPT_STRING='<script type="module" src="../src/main.tsx"></script>'
+mv ./index.html ./src/index.html
+INDEX_HTML_SCRIPT_STRING='<script type="module" src="main.tsx"></script>'
 # this replaces line 12 with text
-sed -i "12c\ ${INDEX_HTML_SCRIPT_STRING}" ./root/index.html
+sed -i "12c\ ${INDEX_HTML_SCRIPT_STRING}" ./src/index.html
 
 npm run-script build
 git add . && git commit -a -m 'prepare to publish on GitHUb/GitLab Pages'

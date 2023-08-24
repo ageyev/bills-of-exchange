@@ -1,13 +1,13 @@
 {
-  "name":"bills-of-exchange",
-  "homepage":"https://ageyev.gitlab.io/bills-of-exchange/",
+  "name": "bills-of-exchange",
+  "homepage": "https://ageyev.gitlab.io/bills-of-exchange/",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "start": "vite",
-   "build": "tsc && vite build --emptyOutDir",
+    "build": "tsc && vite build --emptyOutDir",
     "preview": "vite preview",
     "test": "vitest",
     "format": "prettier --write .",

@@ -2,7 +2,7 @@
 .env
 .env.ts
 .env.js
-.env*
+.template.env
 cache
 coverage*
 gasReporterOutput.json
@@ -190,7 +190,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -241,7 +241,7 @@ dist
 *.gho
 *.ori
 *.orig
-*.tmp
+#*.tmp
 
 ### Kate template
 # Swap Files #
