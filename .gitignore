@@ -1,10 +1,15 @@
-# Hardhat template 
+# .env
 .env
 .env.ts
 .env.js
-.template.env
+
+# Hardhat template
 cache
 coverage*
+coverage
+coverage.json
+typechain
+typechain-types
 gasReporterOutput.json
 
 #artifacts
