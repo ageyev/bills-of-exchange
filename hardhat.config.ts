@@ -50,7 +50,7 @@ const config: HardhatUserConfig = {
   solidity: "0.8.19",
 
   paths: {
-    artifacts: "./src/artifacts",   // < for React
+    artifacts: "./src/hh-artifacts",   // < for React
     sources: "./src/contracts",     //
     tests: "./hardhat-tests",       // default
     cache: "./cache"               // default
@@ -59,7 +59,7 @@ const config: HardhatUserConfig = {
   // https://github.com/dethcrypto/TypeChain/tree/master/packages/hardhat#configuration
   // npx hardhat typechain
   typechain: {
-    outDir: "./src/artifacts/typechain",
+    outDir: "./src/typechain",
     target: "ethers-v6",
     alwaysGenerateOverloads: false, // should overloads with full signatures like deposit(uint256) be generated always, even if there are no overloads?
     externalArtifacts: ["externalArtifacts/*.json"], // optional array of glob patterns with external artifacts to process (for example external libs from node_modules)

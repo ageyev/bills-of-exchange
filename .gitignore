@@ -8,13 +8,13 @@ cache
 coverage*
 coverage
 coverage.json
-typechain
+#typechain # <<
 typechain-types
 gasReporterOutput.json
 
 #artifacts
 ## https://stackoverflow.com/questions/5533050/gitignore-exclude-folder-but-include-specific-subfolder  
-/src/artifacts/build-info/
+/src/hh-artifacts/build-info/
 /src/artifacts/hardhat/ 
 
 ### SublimeText template
