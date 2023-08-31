@@ -36,6 +36,7 @@ main().catch((error) => {
 * to deploy on local HardHat node:
 * npx hardhat node
 * npx hardhat run --network localhost ./hardhat-scripts/deploy.ts
+* rm -rf ./src/hh-artifacts ./src/typechain/ && npx hardhat run --network localhost ./hardhat-scripts/deploy.ts
 *
 * */
 
