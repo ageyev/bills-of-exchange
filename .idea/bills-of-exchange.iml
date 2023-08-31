@@ -9,6 +9,7 @@
       <excludeFolder url="file://$MODULE_DIR$/logs" />
       <excludeFolder url="file://$MODULE_DIR$/src/artifacts/build-info" />
       <excludeFolder url="file://$MODULE_DIR$/src/artifacts/typechain" />
+      <excludeFolder url="file://$MODULE_DIR$/src/hh-artifacts/build-info" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
