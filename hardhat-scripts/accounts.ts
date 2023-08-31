@@ -6,6 +6,7 @@
 * */
 
 import hre from "hardhat";
+// noinspection ES6UnusedImports
 import ethers from "@nomicfoundation/hardhat-ethers"; // << needed for ts types
 
 async function main() {
