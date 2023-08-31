@@ -13,8 +13,8 @@ import type {
   ContractDeployTransaction,
   ContractRunner,
 } from "ethers";
-import type { PayableOverrides } from "../common";
-import type { Lock, LockInterface } from "../Lock";
+import type { PayableOverrides } from "../../../common";
+import type { Lock, LockInterface } from "../../../src/contracts/Lock";
 
 const _abi = [
   {
