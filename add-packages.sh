@@ -9,6 +9,9 @@ npm install --save-dev @openzeppelin/contracts
 # Plugin for IntelliJ: https://github.com/KartanHQ/intellij-hardhat (not needed)
 # HardHat CLI:
 # https://hardhat.org/hardhat-runner/docs/guides/command-line-completion
+npm install --global hardhat-shorthand
+hardhat-completion install
+source "${HOME}"/.bashrc
 # HardHat Toolbox:
 # https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-toolbox
 npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox
@@ -42,3 +45,8 @@ mkdir "logs"
 # (*) dotenv
 # https://www.npmjs.com/package/dotenv
 # npm install --save-dev dotenv
+
+# Winston (logger)
+# https://github.com/winstonjs/winston
+# https://www.npmjs.com/package/winston
+npm install --save-dev winston

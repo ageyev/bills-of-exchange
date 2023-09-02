@@ -55,6 +55,9 @@ const config: HardhatUserConfig = {
     },
     hardhat: {
       // See its defaults
+    },
+    ganache: {
+      url: "http://127.0.0.1:7545"
     }
   },
 
