@@ -13,7 +13,8 @@ import ethers from "@nomicfoundation/hardhat-ethers"; // << needed for ts types
 // see: https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers#helpers
 // helpers are added to the ethers object (hre.ethers)
 
-import createWinstonLogger from "./logger";
+import createWinstonLogger from "../tools/logger";
+import writeObjectToFile from "../tools/writeFile";
 
 interface txInterface {
   blockHash?: string | null,
@@ -58,11 +59,17 @@ const main = async () => {
     gasPrice: deploymentTransaction.gasPrice.toString()
   };
 
-  const logMessage = `Deployed to ${contract.target}, chainId: ${tx.chainId}, txHash: ${tx.hash}`;
+  const logMessage = `${contractName} deployed to ${contract.target}, chainId: ${tx.chainId}, txHash: ${tx.hash}`;
   logger.info({
     message: logMessage,
     label: "tx"
   });
+
+  // writeObjectToFile(
+  //   "../logs/" + contract.target + ".json",
+  //   contract
+  // );
+
 };
 
 // We recommend this pattern to be able to use async/await everywhere

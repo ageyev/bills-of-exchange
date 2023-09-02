@@ -9,7 +9,7 @@ const createWinstonLogger = (logFileName: string) => {
   const myFormat = format.combine(
     format.timestamp({ format: "YYYY-MM-DD HH:mm:ss.SSS" }),
     format.printf(({ level, message, label, timestamp }) => {
-      return `[${timestamp}][${level}][${label}] ${message}`;
+      return `[${timestamp}][${level.toUpperCase()}][${label}] ${message}`;
     })
   );
 
