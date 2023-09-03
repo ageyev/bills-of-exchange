@@ -25,6 +25,8 @@
     //    "moduleResolution": "bundler", // Option 'bundler' can only be used when 'module' is set to 'es2015' or later.
     //    "resolveJsonModule": true,
     "isolatedModules": true,
+    // https://stackoverflow.com/questions/76042962/why-must-i-import-ts-files-as-js-files-in-this-case/76332913#76332913
+    "allowImportingTsExtensions": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "types": [
@@ -38,5 +40,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
 }

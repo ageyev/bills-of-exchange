@@ -8,10 +8,13 @@ import "@nomicfoundation/hardhat-toolbox"; // needed to import hardhat plugins o
 // import { ethers } from "hardhat";
 // use her.ethers instead, see below
 
+
 // https://github.com/motdotla/dotenv
 import dotenv from "dotenv";
 
 dotenv.config();
+
+import env from "./.env.ts";
 
 // ===== Tasks:
 // https://hardhat.org/hardhat-runner/docs/advanced/create-task
@@ -47,8 +50,17 @@ task(
 // https://hardhat.org/hardhat-runner/docs/config
 const config: HardhatUserConfig = {
 
-  solidity: "0.8.19",
+  solidity: {
+    version: "0.8.21",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
 
+  // https://hardhat.org/hardhat-runner/docs/config#available-config-options
   networks: {
     localhost: {
       url: "http://127.0.0.1:8545"
@@ -58,9 +70,14 @@ const config: HardhatUserConfig = {
     },
     ganache: {
       url: "http://127.0.0.1:7545"
+    },
+    sepolia: {
+      url: env.sepolia.infuraHttpEndpoint,
+      accounts: [
+        env.accounts.devAccount.privateKey
+      ]
     }
   },
-
   paths: {
     artifacts: "./src/hh-artifacts",   // < for React
     sources: "./src/contracts",     //
@@ -76,6 +93,12 @@ const config: HardhatUserConfig = {
     alwaysGenerateOverloads: false, // should overloads with full signatures like deposit(uint256) be generated always, even if there are no overloads?
     externalArtifacts: ["externalArtifacts/*.json"], // optional array of glob patterns with external artifacts to process (for example external libs from node_modules)
     dontOverrideCompile: false // defaults to false
+  },
+
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: env.etherscan.apiKey
   }
 
 };

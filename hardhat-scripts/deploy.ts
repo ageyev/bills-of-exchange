@@ -3,8 +3,9 @@
 * https://hardhat.org/hardhat-runner/docs/guides/deploying
 * to deploy on local HardHat node:
 * npx hardhat node
-* npx hardhat run --network localhost ./hardhat-scripts/deploy.ts
-* rm -rf ./src/hh-artifacts ./src/typechain/ && npx hardhat run --network localhost ./hardhat-scripts/deploy.ts
+* npx hardhat clean && npx hardhat run --network hardhat ./hardhat-scripts/deploy.ts
+#
+* npx hardhat clean && npx hardhat run --network sepolia ./hardhat-scripts/deploy.ts
 * */
 
 import hre from "hardhat";
@@ -69,6 +70,32 @@ const main = async () => {
   //   "../logs/" + contract.target + ".json",
   //   contract
   // );
+
+  if (tx.chainId !== "11155111") {
+    return;
+  }
+
+  // Verification
+  // https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#using-programmatically
+  /*
+  * to prevent the following etherscan error:
+  * ContractVerificationMissingBytecodeError: Failed to send contract verification request.
+  * Endpoint URL: https://api-sepolia.etherscan.io/api
+  * Reason: The Etherscan API responded that the address <address> does not have bytecode.
+  * This can happen if the contract was recently deployed and this fact hasn't propagated to the backend yet.
+  * Try waiting for a minute before verifying your contract. If you are invoking this from a script,
+  * try to wait for five confirmations of your contract deployment transaction before running the verification subtask.
+  * */
+  let timeStamp = new Date().toLocaleDateString();
+  console.log(timeStamp, "pause for etherscan ...");
+
+  await new Promise(resolve => setTimeout(resolve, 70 * 1000));
+  const verificationResult = await hre.run("verify:verify", {
+    address: contract.target, // contract address
+    constructorArguments: []
+  });
+
+  // console.log(verificationResult); // undefined
 
 };
 
